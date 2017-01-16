@@ -55,6 +55,8 @@ let task = UsersGistsRequest(username: "radther").create()
 	}
 ```
 
+The protocol has a few different things you can implement such as `httpMethod`, `body`, and `headers`. It also supports basic auth by implementing `authentication`. If the thing you want to implement isn't provided then there are two functions you can use. The first is `editComponents` where you are given the current `URLComponents` before the request is built and can return updated components. The second is `editRequest` where you are given the current `URLRequest` object that you can change and return an updated version of.
+
 ## License
 
 This framework is released under MIT license.
