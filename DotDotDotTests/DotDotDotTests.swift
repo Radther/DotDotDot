@@ -21,16 +21,74 @@ class DotDotDotTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    func testGetGists() {
+        let beforeExpectation = expectation(description: "Before Expectation")
+        let completionExpectation = expectation(description: "Completion Expectation")
+        let finallyExpectation = expectation(description: "Finally Expectation")
+        
+        let task = GistPageRequest().createTask()
+            .before {
+                beforeExpectation.fulfill()
+            }
+            .onCompletion { (value) in
+                completionExpectation.fulfill()
+            }
+            .finally {
+                finallyExpectation.fulfill()
+        }
+        
+        _ = task.start()
+        
+        waitForExpectations(timeout: 10)
     }
     
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testUserGistsWithCorrectUser() {
+        let beforeExpectation = expectation(description: "Before Expectation")
+        let completionExpectation = expectation(description: "Completion Expectation")
+        let finallyExpectation = expectation(description: "Finally Expectation")
+        
+        let task = UsersGistsRequest(username: "radther").createTask()
+            .before {
+                beforeExpectation.fulfill()
+            }
+            .onCompletion { (value) in
+                completionExpectation.fulfill()
+            }
+            .finally {
+                finallyExpectation.fulfill()
         }
+        
+        _ = task.start()
+        
+        waitForExpectations(timeout: 10)
+    }
+    
+    func testUserGistsWithBadUser() {
+        let beforeExpectation = expectation(description: "Before Expectation")
+        let errorExpectation = expectation(description: "Error Expectation")
+        let finallyExpectation = expectation(description: "Finally Expectation")
+        
+        let task = UsersGistsRequest(username: "not%20a%20user").createTask()
+            .before {
+                beforeExpectation.fulfill()
+            }
+            .onCompletion { value in
+                fatalError("Completion should not have been called when request errors")
+            }
+            .onError { (error) in
+                guard case DotTaskError.otherError(DotTaskError.rejectedStatusCode(statusCode: 404)) = error else {
+                    fatalError("Got wrong error")
+                }
+                
+                errorExpectation.fulfill()
+            }
+            .finally {
+                finallyExpectation.fulfill()
+        }
+        
+        _ = task.start()
+        
+        waitForExpectations(timeout: 10)
     }
     
 }
