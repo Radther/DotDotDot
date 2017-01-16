@@ -145,35 +145,24 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
 
     /// Start the task.
     /// **Note:** If a task it will be canceled and the cancel block will be called.
-    ///
-    /// - Returns: Self.
-    public func start() -> Self {
+    public func start() {
         runTask()
-        return self
     }
 
+    
     /// Pause the current task. If there is no current task this does nothing.
-    ///
-    /// - Returns: Self.
-    public func pause() -> Self {
+    public func pause() {
         pauseTask()
-        return self
     }
 
     /// Resumes the current task. If there is no current task this does nothing.
-    ///
-    /// - Returns: Self.
-    public func resume() -> Self {
+    public func resume() {
         resumeTask()
-        return self
     }
 
     /// Cancels the current task. If there is no current task this does nothing.
-    ///
-    /// - Returns: Self.
-    public func cancel() -> Self {
+    public func cancel() {
         cancelTask()
-        return self
     }
 
     // MARK: - Private task state methods
