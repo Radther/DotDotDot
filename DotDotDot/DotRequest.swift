@@ -8,13 +8,31 @@
 
 import Foundation
 
-// TODO: Add Marks
-// TODO: Write description for `FireRequest`
-/// Protocol to implement for making FireRequests.
+// TODO: Write description for `DotRequest`
+/**
+    # DotRequest protocol
+    
+    To use DotDotDot you must implement this protocol. You can then use the `createTask`
+    method on object that implements the protocol to create a `DotTask`.
+ 
+    The only required variable to implement is `url`. The rest are optional and 
+    include things such as:
+     - path: The path that comes after the url
+     - queryParameters: The parameters placed at the end of the url
+     - httpMethod: The HTTP Method to be used (GET, PUT, ETC.)
+    
+    To see the full list you can view the documentation in the `docs` folder
+    of the project.
+ 
+    If the option isn't provided you can implement the `editComponents` and `editRequest` 
+    methods to make any changes before the request is made.
+*/
 public protocol DotRequest {
     
     /// The value to be returned from the request.
     associatedtype Value: Any
+    
+    // MARK: Variables
     
     /// Request base URL string.
     var url: String { get }
@@ -32,6 +50,8 @@ public protocol DotRequest {
     var body: Data? { get }
     /// Request rejection codes.
     var rejectionCodes: [Range<Int>]? { get }
+    
+    // MARK: Methods
 
     /**
         Parse the data based from the given response and data.
@@ -82,7 +102,9 @@ public protocol DotRequest {
     
 }
 
-// MARK: - Default implementation for certain parameters/functions.
+// MARK: - Extensions
+
+// MARK: Default Implementation
 public extension DotRequest {
     
     /// Default path (`nil`).
@@ -132,8 +154,14 @@ public extension DotRequest {
 
 }
 
-// TODO: Write comments
+// MARK: Create Task
 public extension DotRequest {
+    
+    /** 
+        Creates a `DotTask` object from the current request.
+ 
+        - Returns: `DotTask` object.
+    */
     public func createTask() -> DotTask<Value, Self> {
         return DotTask<Value, Self>(request: self)
     }

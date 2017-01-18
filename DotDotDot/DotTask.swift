@@ -11,9 +11,9 @@ import Foundation
 /**
     DotTask errors
 
-    - failedToCreateURL: The URL couldn't be created from the `DotRequest`
-    - failedToCreateRequest: The `URLRequest` couldn't be created from the `DotRequest`
-    - otherError: Another error has occurred that isn't handled by the `DotTask`
+     - failedToCreateURL: The URL couldn't be created from the `DotRequest`
+     - failedToCreateRequest: The `URLRequest` couldn't be created from the `DotRequest`
+     - otherError: Another error has occurred that isn't handled by the `DotTask`
 */
 public enum DotTaskError: Error {
     case failedToCreateURL(String?)
@@ -34,6 +34,8 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
 
     // MARK: - Event Blocks
     
+    // MARK: Type Aliases
+    
     /// Closure to be called before before starting a task.
     public typealias BeforeDot = (() -> ())?
     /// Closure to be called when completing a task.
@@ -45,6 +47,8 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
     /// Closure to be called when a task is canceled.
     public typealias CancelDot = (() -> ())?
     
+    // MARK: Closures
+    
     /// The before closure.
     private var _before: BeforeDot
     /// The completion closure.
@@ -55,13 +59,15 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
     private var _cancel: CancelDot
     /// The finally closure.
     private var _finally: FinallyDot
+    
+    // MARK: - Variables
 
-    // MARK: - Option Variables
+    // MARK: Option Variables
 
     /// Bool representing whether finally should be called if task is canceled.
     private var _finallyOnCancel: Bool = true
 
-    // MARK: - Instance Variables
+    // MARK: Instance Variables
     
     /// Current task
     private var _currentTask: URLSessionDataTask?
@@ -74,77 +80,93 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
     /**
         Initializes a new `DotTask` with a `DotRequest`.
         
-        - Parameter request: An object that conforms to the `DotRequest` protocol.
+         - Parameter request: An object that conforms to the `DotRequest` protocol.
     */
     public init(request: Request) {
         self.DotRequest = request
     }
+    
+    // MARK: - Setters
         
-    // MARK: - Block setters
+    // MARK: Block Setters
 
     /**
         Set the block to be called before starting a task.
         
-        - Parameter beforeDot: A block to be called before the task starts.
-        - Returns: Self.
+         - Parameter beforeDot: A block to be called before the task starts.
+         - Returns: Self.
     */
     public func before(_ beforeDot: BeforeDot) -> Self {
         self._before = beforeDot
         return self
     }
 
-    /// Set the block to be called on completion of a request
-    ///
-    /// - Parameter completionDot: A block to be called when the request completes.
-    /// - Returns: Self.
+    /**
+        Set the block to be called on completion of a request
+
+         - Parameter completionDot: A block to be called when the request completes.
+         - Returns: Self.
+    */
     public func onCompletion(_ completionDot: CompletionDot) -> Self {
         self._completion = completionDot
         return self
     }
 
-    /// Set the block to be called if the request errors.
-    ///
-    /// - Parameter errorDot: A block to be called if the request errors.
-    /// - Returns: Self.
+    /**
+        Set the block to be called if the request errors.
+
+         - Parameter errorDot: A block to be called if the request errors.
+         - Returns: Self.
+    */
     public func onError(_ errorDot: ErrorDot) -> Self {
         self._error = errorDot
         return self
     }
     
-    /// Set the block to be called if the request is canceled.
-    ///
-    /// - Parameter cancelDot: A block to be called if the request is canceled.
-    /// - Returns: Self.
+    /**
+        Set the block to be called if the request is canceled.
+
+         - Parameter cancelDot: A block to be called if the request is canceled.
+         - Returns: Self.
+    */
     public func onCancel(_ cancelDot: CancelDot) -> Self {
         self._cancel = cancelDot
         return self
     }
 
-    /// Set the block to be called at the end of a request, regardless of success.
-    ///
-    /// - Parameter finallyDot: A block to be called after the request has finished.
-    /// - Returns: Self.
+    /**
+        Set the block to be called at the end of a request, regardless of success.
+
+         - Parameter finallyDot: A block to be called after the request has finished.
+         - Returns: Self.
+    */
     public func finally(_ finallyDot: FinallyDot) -> Self {
         self._finally = finallyDot
         return self
     }
 
-    // MARK: - Option Setters
+    // MARK: Option Setters
 
-    /// Set whether the finally block should be called when a task is cancelled.
-    /// **Note:** This defaults to `true`.
-    ///
-    /// - Parameter shouldCall: Whether it should be called.
-    /// - Returns: Self.
+    /**
+        Set whether the finally block should be called when a task is cancelled.
+        **Note:** This defaults to `true`.
+
+         - Parameter shouldCall: Whether it should be called.
+         - Returns: Self.
+    */
     public func shouldCallFinallyOnCancel(_ shouldCall: Bool) -> Self {
         self._finallyOnCancel = shouldCall
         return self
     }
 
-    // MARK: - Task state methods
+    // MARK: - Task State
+    
+    // MARK: Public
 
-    /// Start the task.
-    /// **Note:** If a task it will be canceled and the cancel block will be called.
+    /**
+        Start the task.
+        **Note:** If a task it will be canceled and the cancel block will be called.
+    */
     public func start() {
         runTask()
     }
@@ -165,7 +187,7 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
         cancelTask()
     }
 
-    // MARK: - Private task state methods
+    // MARK: Private
     
     /// Start a new Task.
     private func runTask() {
@@ -234,8 +256,10 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
         }
     }
 
-    /// Cancel the current task if it exists.
-    /// **Note:** Sets the current task to `nil`.
+    /**
+        Cancel the current task if it exists.
+        **Note:** Sets the current task to `nil`.
+    */
     private func cancelTask() {
         if _currentTask.hasValue {
             _currentTask?.cancel()
@@ -248,32 +272,38 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
     }
     
     // MARK: - Helper methods
+    
+    // MARK: Parse Methods
 
     private func parseAndSendCompletion(response: URLResponse, data: Data?) throws {
         let parsedValue = try DotRequest.parseValue(response: response, data: data)
         _completion?(parsedValue)
     }
     
-    /// Sends the given error to the `DotRequest` implementations `parseError` method, and
-    /// then sends this error to the error block. If the error returned from `parseError`
-    /// is `nil` then the error sent to the error block will be a `DotTaskError.otherError`
-    /// with the given error as it's value.
-    ///
-    /// - Parameters:
-    ///   - error: The error to be parsed.
-    ///   - response: The response from the `URLRequest`.
-    ///   - data: The data from the `URLRequest`.
+    /**
+        Sends the given error to the `DotRequest` implementations `parseError` method, and
+        then sends this error to the error block. If the error returned from `parseError`
+        is `nil` then the error sent to the error block will be a `DotTaskError.otherError`
+        with the given error as it's value.
+
+         - Parameters:
+             - error: The error to be parsed.
+             - response: The response from the `URLRequest`.
+             - data: The data from the `URLRequest`.
+    */
     private func parseAndSendError(withError error: Error, response: URLResponse?, data: Data?) {
         let parsedError = self.DotRequest.parseError(error: error, response: response, data: data) ?? DotTaskError.otherError(error)
         _error?(parsedError)
     }
     
-    // MARK: - Build items
+    // MARK: Build Methods
     
-    /// Build the url from the `DotRequest` implementation.
-    ///
-    /// - Returns: The build `URL`.
-    /// - Throws: Error describing why the `URL` couldn't be built.
+    /**
+        Build the url from the `DotRequest` implementation.
+
+         - Returns: The build `URL`.
+         - Throws: Error describing why the `URL` couldn't be built.
+    */
     private func buildURL() throws -> URL {
         guard var components = URLComponents(string: DotRequest.url) else {
             throw DotTaskError.failedToCreateURL("Request URL is not valid. URL: \(DotRequest.url)")
@@ -298,11 +328,13 @@ public class DotTask<Value, Request: DotRequest> where Request.Value == Value {
         return url
     }
     
-    /// Build a `URLRequest` from the given `URL` using the `DotRequest` implementation.
-    ///
-    /// - Parameter url: The URL to build the request with.
-    /// - Returns: The build `URLRequest`.
-    /// - Throws: Error describing why the `URLRequest` couldn't be built.
+    /**
+        Build a `URLRequest` from the given `URL` using the `DotRequest` implementation.
+
+         - Parameter url: The URL to build the request with.
+         - Returns: The build `URLRequest`.
+         - Throws: Error describing why the `URLRequest` couldn't be built.
+    */
     private func buildRequest(withURL url: URL) throws -> URLRequest {
         var urlRequest = URLRequest(url: url)
         urlRequest.httpMethod = DotRequest.httpMethod

@@ -1,0 +1,40 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/radther/Development/Xcode Projects/DotDotDot/DotDotDot/DotTask.swift",
+      "line": 19,
+      "symbol": "DotTaskError.failedToCreateURL",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/radther/Development/Xcode Projects/DotDotDot/DotDotDot/DotTask.swift",
+      "line": 20,
+      "symbol": "DotTaskError.failedToCreateRequest",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/radther/Development/Xcode Projects/DotDotDot/DotDotDot/DotTask.swift",
+      "line": 21,
+      "symbol": "DotTaskError.missingOrBadResponse",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/radther/Development/Xcode Projects/DotDotDot/DotDotDot/DotTask.swift",
+      "line": 22,
+      "symbol": "DotTaskError.rejectedStatusCode",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/radther/Development/Xcode Projects/DotDotDot/DotDotDot/DotTask.swift",
+      "line": 23,
+      "symbol": "DotTaskError.otherError",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/radther/Development/Xcode Projects/DotDotDot"
+}

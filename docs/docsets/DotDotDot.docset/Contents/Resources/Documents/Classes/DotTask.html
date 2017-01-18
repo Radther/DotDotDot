@@ -1,0 +1,860 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>DotTask Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/DotTask" class="dashAnchor"></a>
+    <a title="DotTask Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">DotDotDot Docs</a> (90% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">DotDotDot Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        DotTask Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/DotTask.html">DotTask</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/DotTaskError.html">DotTaskError</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Protocols.html">Protocols</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Protocols/DotRequest.html">DotRequest</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>DotTask</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="kd">public</span> <span class="kd">class</span> <span class="kt">DotTask</span><span class="o">&lt;</span><span class="kt">Value</span><span class="p">,</span> <span class="kt">Request</span><span class="p">:</span> <span class="kt"><a href="../Protocols/DotRequest.html">DotRequest</a></span><span class="o">&gt;</span> <span class="k">where</span> <span class="kt">Request</span><span class="o">.</span><span class="kt">Value</span> <span class="o">==</span> <span class="kt">Value</span></code></pre>
+
+                </div>
+              </div>
+            <p><a href='#dottask' class='anchor' aria-hidden=true><span class="header-anchor"></span></a><h1 id='dottask'>DotTask</h1></p>
+
+<p>A DotTask (or simply task) instance is an object that can use a <code><a href="../Protocols/DotRequest.html">DotRequest</a></code>. This is done by
+calling the <code>start</code> method. A task is reusable. <code>Start</code> can be called as many times as you like.
+This means if a request needs to be repeated (such as pull-to-refresh) the task can be started again.
+If a current task is already running this will be canceled and a new one will be started.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Event%20Blocks"></a>
+                <a name="//apple_ref/swift/Section/Event Blocks" class="dashAnchor"></a>
+                <a href="#/Event%20Blocks">
+                  <h3 class="section-name">Event Blocks</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C9DotDotDot7DotTask8ErrorDot"></a>
+                    <a name="//apple_ref/swift/Alias/ErrorDot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C9DotDotDot7DotTask8ErrorDot">ErrorDot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Closure to be called when a task errors.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">ErrorDot</span> <span class="o">=</span> <span class="p">((</span><span class="kt">Error</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C9DotDotDot7DotTask13CompletionDot"></a>
+                    <a name="//apple_ref/swift/Alias/CompletionDot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C9DotDotDot7DotTask13CompletionDot">CompletionDot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Closure to be called when completing a task.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CompletionDot</span> <span class="o">=</span> <span class="p">((</span><span class="kt">Value</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C9DotDotDot7DotTask9BeforeDot"></a>
+                    <a name="//apple_ref/swift/Alias/BeforeDot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C9DotDotDot7DotTask9BeforeDot">BeforeDot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Closure to be called before before starting a task.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">BeforeDot</span> <span class="o">=</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C9DotDotDot7DotTask9CancelDot"></a>
+                    <a name="//apple_ref/swift/Alias/CancelDot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C9DotDotDot7DotTask9CancelDot">CancelDot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Closure to be called when a task is canceled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">CancelDot</span> <span class="o">=</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:C9DotDotDot7DotTask10FinallyDot"></a>
+                    <a name="//apple_ref/swift/Alias/FinallyDot" class="dashAnchor"></a>
+                    <a class="token" href="#/s:C9DotDotDot7DotTask10FinallyDot">FinallyDot</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Closure to be called after everything is over.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">typealias</span> <span class="kt">FinallyDot</span> <span class="o">=</span> <span class="p">(()</span> <span class="o">-&gt;</span> <span class="p">())?</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Instance%20Variables"></a>
+                <a name="//apple_ref/swift/Section/Instance Variables" class="dashAnchor"></a>
+                <a href="#/Instance%20Variables">
+                  <h3 class="section-name">Instance Variables</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC9DotDotDot7DotTask10DotRequestq_"></a>
+                    <a name="//apple_ref/swift/Property/DotRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC9DotDotDot7DotTask10DotRequestq_">DotRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current request</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">final</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">DotRequest</span><span class="p">:</span> <span class="kt">Request</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Initializers"></a>
+                <a name="//apple_ref/swift/Section/Initializers" class="dashAnchor"></a>
+                <a href="#/Initializers">
+                  <h3 class="section-name">Initializers</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTaskcFT7requestq__GS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/init(request:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTaskcFT7requestq__GS0_xq__">init(request:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Initializes a new <code>DotTask</code> with a <code><a href="../Classes/DotTask.html#/s:vC9DotDotDot7DotTask10DotRequestq_">DotRequest</a></code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter request: An object that conforms to the <code><a href="../Classes/DotTask.html#/s:vC9DotDotDot7DotTask10DotRequestq_">DotRequest</a></code> protocol.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="nf">init</span><span class="p">(</span><span class="nv">request</span><span class="p">:</span> <span class="kt">Request</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>An object that conforms to the <code>DotRequest</code> protocol.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Block%20Setters"></a>
+                <a name="//apple_ref/swift/Section/Block Setters" class="dashAnchor"></a>
+                <a href="#/Block%20Setters">
+                  <h3 class="section-name">Block Setters</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask6beforeFGSqFT_T__DGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/before(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask6beforeFGSqFT_T__DGS0_xq__">before(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the block to be called before starting a task.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter beforeDot: A block to be called before the task starts.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">before</span><span class="p">(</span><span class="n">_</span> <span class="nv">beforeDot</span><span class="p">:</span> <span class="kt"><a href="../Classes/DotTask.html#/s:C9DotDotDot7DotTask9BeforeDot">BeforeDot</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>beforeDot</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be called before the task starts.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask12onCompletionFGSqFxT__DGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/onCompletion(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask12onCompletionFGSqFxT__DGS0_xq__">onCompletion(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the block to be called on completion of a request</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter completionDot: A block to be called when the request completes.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">onCompletion</span><span class="p">(</span><span class="n">_</span> <span class="nv">completionDot</span><span class="p">:</span> <span class="kt"><a href="../Classes/DotTask.html#/s:C9DotDotDot7DotTask13CompletionDot">CompletionDot</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionDot</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be called when the request completes.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask7onErrorFGSqFPs5Error_T__DGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/onError(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask7onErrorFGSqFPs5Error_T__DGS0_xq__">onError(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the block to be called if the request errors.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter errorDot: A block to be called if the request errors.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">onError</span><span class="p">(</span><span class="n">_</span> <span class="nv">errorDot</span><span class="p">:</span> <span class="kt"><a href="../Classes/DotTask.html#/s:C9DotDotDot7DotTask8ErrorDot">ErrorDot</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>errorDot</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be called if the request errors.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask8onCancelFGSqFT_T__DGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/onCancel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask8onCancelFGSqFT_T__DGS0_xq__">onCancel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the block to be called if the request is canceled.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter cancelDot: A block to be called if the request is canceled.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">onCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">cancelDot</span><span class="p">:</span> <span class="kt"><a href="../Classes/DotTask.html#/s:C9DotDotDot7DotTask9CancelDot">CancelDot</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>cancelDot</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be called if the request is canceled.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask7finallyFGSqFT_T__DGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/finally(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask7finallyFGSqFT_T__DGS0_xq__">finally(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set the block to be called at the end of a request, regardless of success.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter finallyDot: A block to be called after the request has finished.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">finally</span><span class="p">(</span><span class="n">_</span> <span class="nv">finallyDot</span><span class="p">:</span> <span class="kt"><a href="../Classes/DotTask.html#/s:C9DotDotDot7DotTask10FinallyDot">FinallyDot</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>finallyDot</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A block to be called after the request has finished.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Option%20Setters"></a>
+                <a name="//apple_ref/swift/Section/Option Setters" class="dashAnchor"></a>
+                <a href="#/Option%20Setters">
+                  <h3 class="section-name">Option Setters</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask25shouldCallFinallyOnCancelFSbDGS0_xq__"></a>
+                    <a name="//apple_ref/swift/Method/shouldCallFinallyOnCancel(_:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask25shouldCallFinallyOnCancelFSbDGS0_xq__">shouldCallFinallyOnCancel(_:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Set whether the finally block should be called when a task is cancelled.
+<strong>Note:</strong> This defaults to <code>true</code>.</p>
+
+<div class="aside aside-parameter">
+    <p class="aside-title">Parameter</p>
+    Parameter shouldCall: Whether it should be called.
+
+</div>
+
+<div class="aside aside-returns">
+    <p class="aside-title">Returns</p>
+    Self.
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">shouldCallFinallyOnCancel</span><span class="p">(</span><span class="n">_</span> <span class="nv">shouldCall</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="k">Self</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>shouldCall</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Whether it should be called.</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Self.</p>
+
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public"></a>
+                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
+                <a href="#/Public">
+                  <h3 class="section-name">Public</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask5startFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/start()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask5startFT_T_">start()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start the task.
+<strong>Note:</strong> If a task it will be canceled and the cancel block will be called.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">start</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask5pauseFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/pause()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask5pauseFT_T_">pause()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Pause the current task. If there is no current task this does nothing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">pause</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask6resumeFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/resume()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask6resumeFT_T_">resume()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Resumes the current task. If there is no current task this does nothing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resume</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC9DotDotDot7DotTask6cancelFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/cancel()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC9DotDotDot7DotTask6cancelFT_T_">cancel()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Cancels the current task. If there is no current task this does nothing.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">cancel</span><span class="p">()</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external">Tom Singleton</a>. All rights reserved. (Last updated: 2017-01-18)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.3</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
