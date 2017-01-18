@@ -8,7 +8,6 @@
 
 import Foundation
 
-// TODO: Write description for `DotRequest`
 /**
     # DotRequest protocol
     
