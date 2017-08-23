@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A847D2E51E3F5B6C00402BF7 /* DotDownloadTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = A847D2E41E3F5B6C00402BF7 /* DotDownloadTask.swift */; };
 		A8B86CB81E2D5CEF008C60FC /* DotDotDot.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A8B86CAE1E2D5CEF008C60FC /* DotDotDot.framework */; };
 		A8B86CBD1E2D5CEF008C60FC /* DotDotDotTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A8B86CBC1E2D5CEF008C60FC /* DotDotDotTests.swift */; };
 		A8B86CBF1E2D5CEF008C60FC /* DotDotDot.h in Headers */ = {isa = PBXBuildFile; fileRef = A8B86CB11E2D5CEF008C60FC /* DotDotDot.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -30,6 +31,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A847D2E41E3F5B6C00402BF7 /* DotDownloadTask.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DotDownloadTask.swift; sourceTree = "<group>"; };
 		A8B86CAE1E2D5CEF008C60FC /* DotDotDot.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = DotDotDot.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		A8B86CB11E2D5CEF008C60FC /* DotDotDot.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DotDotDot.h; sourceTree = "<group>"; };
 		A8B86CB21E2D5CEF008C60FC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -90,6 +92,7 @@
 				A8B86CCA1E2D5D57008C60FC /* DotTask.swift */,
 				A8B86CB11E2D5CEF008C60FC /* DotDotDot.h */,
 				A8B86CB21E2D5CEF008C60FC /* Info.plist */,
+				A847D2E41E3F5B6C00402BF7 /* DotDownloadTask.swift */,
 			);
 			path = DotDotDot;
 			sourceTree = "<group>";
@@ -172,18 +175,19 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0820;
-				LastUpgradeCheck = 0820;
+				LastUpgradeCheck = 0900;
 				ORGANIZATIONNAME = "Tom Sinlgeton";
 				TargetAttributes = {
 					A8B86CAD1E2D5CEF008C60FC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = K68WDDJ6BS;
-						LastSwiftMigration = 0820;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 					A8B86CB61E2D5CEF008C60FC = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = K68WDDJ6BS;
+						LastSwiftMigration = 0900;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -232,6 +236,7 @@
 				A8B86CCE1E2D5D57008C60FC /* DotTask.swift in Sources */,
 				A8B86CCC1E2D5D57008C60FC /* Bool+not.swift in Sources */,
 				A8B86CCD1E2D5D57008C60FC /* DotRequest.swift in Sources */,
+				A847D2E51E3F5B6C00402BF7 /* DotDownloadTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -266,7 +271,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -274,7 +281,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -319,7 +330,9 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -327,7 +340,11 @@
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -373,7 +390,8 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -393,7 +411,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = ink.designdev.DotDotDot;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
@@ -406,7 +425,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ink.designdev.DotDotDotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Debug;
 		};
@@ -419,7 +439,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ink.designdev.DotDotDotTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
+				SWIFT_VERSION = 4.0;
 			};
 			name = Release;
 		};
